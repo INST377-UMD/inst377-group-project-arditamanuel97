@@ -1,0 +1,594 @@
+<html>
+
+    <head>
+
+        <title>SkyReady Aviation</title>
+
+        <style>
+
+            /* Header CSS */
+
+            * {
+
+                margin: 0;
+
+                padding: 0;
+
+                box-sizing: border-box;
+
+            }
+
+
+
+            #sky-aviation-ready {
+
+                color: black;
+
+                font-weight: 1800px;
+
+            }
+
+
+
+            #bar {
+
+                padding: 20px;
+
+                height: 600px;
+
+                text-align: center;
+
+                background-color: #5228F5;
+
+                color: white;
+
+                width: 100%;
+
+                margin-bottom: 10px;
+
+                display: flex;
+
+                flex-direction: column;
+
+
+
+            }
+
+
+
+            #appInfos {
+
+                flex-grow: 1;
+
+                display: flex;
+
+                align-items: center;
+
+                justify-content: center;
+
+                flex-direction: column;
+
+            }
+
+
+
+            #main-nav {
+
+                background-color: white;
+
+                border: 1px solid transparent;
+
+                border-radius: 50px;
+
+                width: 90%;
+
+                margin: 0px auto 0;
+
+                display: flex;
+
+                justify-content: space-between;
+
+                align-items: center;
+
+                padding: 20px 30px;
+
+            }
+
+
+
+            #main-nav a {
+
+                text-decoration: none;
+
+                color: black;
+
+                font-weight: 500;
+
+            }
+
+
+
+            #navBarLinks {
+
+                display: flex;
+
+                gap: 50px;
+
+                font-size: x-large;
+
+            }
+
+
+
+            /* Get started button */
+
+            .getStartedButton {
+
+                margin-bottom: 50px;
+
+                align-items: center;
+
+                appearance: none;
+
+                background-color: #FCFCFD;
+
+                border-radius: 50px;
+
+                border-width: 0;
+
+                box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+
+                box-sizing: border-box;
+
+                color: #36395A;
+
+                cursor: pointer;
+
+                display: inline-flex;
+
+                font-family: "JetBrains Mono", monospace;
+
+                height: 48px;
+
+                justify-content: center;
+
+                line-height: 1;
+
+                list-style: none;
+
+                overflow: hidden;
+
+                padding-left: 16px;
+
+                padding-right: 16px;
+
+                position: relative;
+
+                text-align: left;
+
+                text-decoration: none;
+
+                transition: box-shadow .15s, transform .15s;
+
+                user-select: none;
+
+                -webkit-user-select: none;
+
+                touch-action: manipulation;
+
+                white-space: nowrap;
+
+                will-change: box-shadow, transform;
+
+                font-size: 18px;
+
+            }
+
+
+
+            .getStartedButton:focus {
+
+                box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+
+            }
+
+
+
+            .getStartedButton:hover {
+
+                box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+
+                transform: translateY(-2px);
+
+            }
+
+
+
+            .getStartedButton:active {
+
+                box-shadow: #D6D6E7 0 3px 7px inset;
+
+                transform: translateY(2px);
+
+            }
+
+
+
+            /* Details CSS */
+
+            .whyChooseUs {
+
+                text-align: center;
+
+            }
+
+
+
+            #detailContainer {
+
+                background-color: white;
+
+                display: flex;
+
+                padding: 100px;
+
+                gap: 200px;
+
+            }
+
+
+
+            #detail-content {
+
+                font-size: 25px;
+
+                margin-top: 20px;
+
+                color: gray;
+
+            }
+
+
+            #appInfos-content {
+
+                font-size: 25px;
+
+                margin-top: 20px;
+
+                color: white;
+
+            }
+
+
+
+            #appPic {
+
+                width: 390px;
+
+                height: 350px;
+
+                border: 1px solid transparent;
+
+                border-radius: 50%;
+
+                overflow: hidden;
+
+                /* margin-bottom: 20px;
+
+                margin-right: 20px; */
+
+            }
+
+
+
+            /* Features CSS */
+
+            #features-content {
+
+                font-size: 25px;
+
+                margin-top: 20px;
+
+                color: gray;
+
+            }
+
+
+
+            #featuresContainer {
+
+                background-color: #EFF0F2;
+
+                display: flex;
+
+                justify-content: space-between;
+
+                padding: 100px;
+
+                gap: 200px;
+
+            }
+
+
+
+            .content-box {
+
+                width: 65%;
+
+                box-sizing: border-box;
+
+                padding: 30px;
+
+                border: 2px solid blue;
+
+                border-radius: 20px;
+
+                box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;        }
+
+
+
+            .content-box p {
+
+                font-size: 18px;
+
+            }        
+
+
+
+            /* Team */
+
+            #teamContainer {
+
+                background-color: black;
+
+                display: flex;
+
+                justify-content: space-between;
+
+                align-items: center;
+
+                padding: 100px;
+
+                gap: 200px;
+
+                text-align: center;
+
+            }
+
+
+
+            #umdLogo {
+
+                width: 100px;
+
+                height: auto;
+
+                margin-right: 10px;
+
+                border-radius: 20px;
+
+
+
+            }
+
+
+
+            #team {
+
+                margin: 0 auto;
+
+
+
+            }
+
+
+
+            .team p {
+
+                font-size: 25px;
+
+            }
+
+
+
+
+
+            #team-content {
+
+                font-size: 18px;
+
+            }
+
+
+
+            /* Footer */
+
+            #footer {
+
+                text-align: center;
+
+                background-color: black;
+
+                color: white;
+
+                padding: 10px;
+
+                bottom: 0;
+
+                width: 100%;
+
+            }
+
+
+
+            #copyright {
+
+                color: grey;
+
+            }
+
+        </style>
+
+
+
+
+
+    </head>
+
+
+
+    <body>
+
+        <!-- Common Header  -->
+
+        <!-- Header Title Bar -->
+
+        <header id="bar">
+
+            <!-- Navigation Bar -->
+
+            <nav id="main-nav">
+
+                <h1 id="sky-aviation-ready">SKYREADY AVIATION</h1>
+
+                <div id="navBarLinks">
+
+                    <a href="index.html">Home</a>
+
+                    <a href="metarInfoPage.html">METAR Info</a>
+
+                    <a href="about.html">About</a>
+
+                </div>
+
+            </nav>
+
+            <div id="appInfos">
+
+                <h1 style="font-size: 70px; font-family: 'Helvetica', Arial, sans-serif;">
+
+                    What is SkyReady Aviation?
+
+                </h1>
+
+                <p id="appInfos-content">Here at SkyReady Aviation, we provide a way to access Meteorological Aerodrome Report data (METAR) in a clean and convenient manner. With the site, users have access to over ten fields of data describing attributes of the weather including, temperature, dewpoint, wind direction, wind speed, visibility, altimeter, and sea-level pressure. This data is retrieved from the API provided by the Aviation Weather Center at <a href="https://aviationweather.gov/" style="color: white;">https://aviationweather.gov/.</a>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- Details -->
+
+        <div id="detailContainer">
+
+            <div id="details">
+
+                <h1 id="whyChooseUs">Target Browsers</h1>
+
+                <p id="detail-content">SkyReady Aviation is designed to be accessible by devices of most operating systems including IOS and Android. Browsers hosting the application must be compatible with HTML5, JavaScript, and CSS3, which most are. The incorporated interactive elements are also supported by most environments and device sizes.
+
+
+            </div>
+
+            <div>
+
+                <img id="appPic"
+
+                    src="https://www.passengerterminaltoday.com/wp-content/uploads/2019/06/Video-featured-image.png">
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <!-- Features -->
+
+        <div id="featuresContainer">
+
+            <div id="features">
+
+                <h3 style="color:blue; font-size: 24px;">Features</h3><br>
+
+                <h1>Report Fields</h1>
+
+                <p id="features-content" style="font-size: 25px;">
+
+                    
+                    Metar ID: A unique identifier assigned to each observation.<br>
+                    Station ID: The ICAO code assigned to the station; A unique four-letter code assigned to each airport by the International Civil Aviation Organization.<br>
+                    Report Time: The timestamp for the METAR report stating the date and time the observation was recorded.<br>
+                    Temperature: Temperature at the location in degrees Celsius.<br>
+                    Dewpoint: The temperature at which the air is completely saturated with water. At a colder temperature dew will begin to form. This dewpoint temperature is useful in assessing the probability of precipitation or cloud formation. This value is measured in degrees Celsius.<br>
+                    Wind Direction: Indicates the direction the wind is blowing in degrees true. This is important for flight planning, for example, runway selection, as wind impacts the way the craft flies. <br>
+                    Wind Speed: The speed the wind is traveling. This also has an effect on the performance of an aircraft, especially in takeoff and landing. The speed is recorded in knots.<br>
+                    Visibility: The distance at which objects can be seen. This data is important as it identifies potential limitations on the pilot's flying ability. This value is recorded in statute miles.<br>
+                    Altimeter: The atmospheric pressure at the station. This value is important for aircraft calibration as it ensures a more accurate altimeter reading during flight. This value is recorded in inches of mercury.<br>
+                    Sea level Pressure: The atmospheric pressure at sea level. This value is used more for comparison purposes between different locations. This value is recorded in millibars.<br>
+                    Coordinates: The geographical coordinates of the station in latitude and longitude format.<br>
+                    
+
+
+                </p>
+
+            </div>
+
+           
+
+        </div>
+
+        <!-- Our Team -->
+
+        <div id="teamContainer">
+
+            <div id="team">
+
+                <h3 style="color:white; font-size: 40px;">Our Team</h3><br>
+
+                <img id="umdLogo"
+
+                    src="https://umd-brand.transforms.svdcdn.com/production/uploads/images/logos-formal-seal.jpg?w=1801&h=1801&auto=compress%2Cformat&fit=crop&dm=1651267392&s=81a14f930f7888983f0f8bc10146c0b2"
+
+                    alt="UMD Logo">
+
+                <br><br>
+
+                <p id="team-content" style="color: white">Our team is made up of students from the University of Maryland,
+
+                    College Park who are passionate about aviation and want to make sure
+
+                    that you have the best information available to make the best decisions for your flight.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Footer -->
+
+        <footer id="footer">
+
+            <h4>Sky Ready Aviation</h4>
+
+            <hr style="border-color:grey; width: 50%; margin: 10px auto;">
+
+            <p id="copyright">&copy; 2023 AMG, All Rights Reserved.</p>
+
+        </footer>
+
+
+
+    </body>
+
+
+
+</html>

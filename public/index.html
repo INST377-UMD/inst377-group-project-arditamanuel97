@@ -1,0 +1,306 @@
+<html>
+    <head>
+        <title>SkyAviation Ready</title>
+        <style>
+            /* Header CSS */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            #sky-aviation-ready {
+                color: black;
+                font-weight: 1800px;
+            }
+
+            #bar {
+                padding: 20px;
+                height: 600px;
+                text-align: center;
+                background-color: #5228F5;
+                color: white;
+                width: 100%;
+                margin-bottom: 10px;
+                display: flex;
+                flex-direction: column;
+
+            }
+
+            #appInfos {
+                flex-grow: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            #main-nav {
+                background-color: white;
+                border: 1px solid transparent;
+                border-radius: 50px;
+                width: 90%;
+                margin: 0px auto 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 30px;
+            }
+
+            #main-nav a {
+                text-decoration: none;
+                color: black;
+                font-weight: 500;
+            }
+
+            #navBarLinks {
+                display: flex;
+                gap: 50px;
+                font-size: x-large;
+            }
+
+            /* Get started button */
+            .getStartedButton {
+                margin-bottom: 50px;
+                align-items: center;
+                appearance: none;
+                background-color: #FCFCFD;
+                border-radius: 50px;
+                border-width: 0;
+                box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+                box-sizing: border-box;
+                color: #36395A;
+                cursor: pointer;
+                display: inline-flex;
+                font-family: "JetBrains Mono", monospace;
+                height: 48px;
+                justify-content: center;
+                line-height: 1;
+                list-style: none;
+                overflow: hidden;
+                padding-left: 16px;
+                padding-right: 16px;
+                position: relative;
+                text-align: left;
+                text-decoration: none;
+                transition: box-shadow .15s, transform .15s;
+                user-select: none;
+                -webkit-user-select: none;
+                touch-action: manipulation;
+                white-space: nowrap;
+                will-change: box-shadow, transform;
+                font-size: 18px;
+            }
+
+            .getStartedButton:focus {
+                box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+            }
+
+            .getStartedButton:hover {
+                box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+                transform: translateY(-2px);
+            }
+
+            .getStartedButton:active {
+                box-shadow: #D6D6E7 0 3px 7px inset;
+                transform: translateY(2px);
+            }
+
+            /* Details CSS */
+            .whyChooseUs {
+                text-align: center;
+            }
+
+            #detailContainer {
+                background-color: white;
+                display: flex;
+                padding: 100px;
+                gap: 200px;
+            }
+
+            #detail-content {
+                font-size: 25px;
+                margin-top: 20px;
+                color: gray;
+            }
+
+            #appPic {
+                width: 390px;
+                height: 350px;
+                border: 1px solid transparent;
+                border-radius: 50%;
+                overflow: hidden;
+                /* margin-bottom: 20px;
+                margin-right: 20px; */
+            }
+
+            /* Features CSS */
+            #features-content {
+                font-size: 25px;
+                margin-top: 20px;
+                color: gray;
+            }
+
+            #featuresContainer {
+                background-color: #EFF0F2;
+                display: flex;
+                justify-content: space-between;
+                padding: 100px;
+                gap: 200px;
+            }
+
+            .content-box {
+                width: 65%;
+                box-sizing: border-box;
+                padding: 30px;
+                border: 2px solid blue;
+                border-radius: 20px;
+                box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;        }
+
+            .content-box p {
+                font-size: 18px;
+            }        
+
+            /* Team */
+            #teamContainer {
+                background-color: black;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 100px;
+                gap: 200px;
+                text-align: center;
+            }
+
+            #umdLogo {
+                width: 100px;
+                height: auto;
+                margin-right: 10px;
+                border-radius: 20px;
+
+            }
+
+            #team {
+                margin: 0 auto;
+
+            }
+
+            .team p {
+                font-size: 25px;
+            }
+
+
+            #team-content {
+                font-size: 18px;
+            }
+
+            /* Footer */
+            #footer {
+                text-align: center;
+                background-color: black;
+                color: white;
+                padding: 10px;
+                bottom: 0;
+                width: 100%;
+            }
+
+            #copyright {
+                color: grey;
+            }
+        </style>
+
+
+    </head>
+
+    <body>
+        <!-- Common Header  -->
+        <!-- Header Title Bar -->
+        <header id="bar">
+            <!-- Navigation Bar -->
+            <nav id="main-nav">
+                <h1 id="sky-aviation-ready">SKYREADY AVIATION</h1>
+                <div id="navBarLinks">
+                    <a href="index.html">Home</a>
+                    <a href="metarInfoPage.html">METAR Info</a>
+                    <a href="about.html">About</a>
+                </div>
+            </nav>
+            <div id="appInfos">
+                <h1 style="font-size: 70px; font-family: 'Helvetica', Arial, sans-serif;">
+                    Best Weather Information Provider for Meteorologists
+                </h1>
+            </div>
+
+            <!-- Get started button -->
+            <a href="metarInfoPage.html">
+                <button class="getStartedButton" role="button">Get Started</button>
+            </a>
+        </header>
+
+        <!-- Details -->
+        <div id="detailContainer">
+            <div id="details">
+                <h3 style="color:blue; font-size: 24px;">Details</h3><br>
+                <h1 id="whyChooseUs">Why Choose SkyReady Aviation?</h1>
+                <p id="detail-content">Welcome to SkyReady Aviation, a specialized weather information platform designed to empower meteorologists working with airline companies. 
+                    Our mission is to provide meteorologists with advanced tools and data through a user-friendly website, enabling them to generate METAR reports and enhance 
+                    weather-related systems for optimal airline operations.
+                </p>
+            </div>
+            <div>
+                <img id="appPic"
+                    src="https://www.ctsys.com/wp-content/uploads/elementor/thumbs/Aviation-Weather-p3mxioux6mdd0acbm7ymxp8xki5smv0b340soes6ww.jpg">
+            </div>
+        </div>
+
+
+        <!-- Features -->
+        <div id="featuresContainer">
+            <div id="features">
+                <h3 style="color:blue; font-size: 24px;">Features</h3><br>
+                <h1>FEATURES</h1>
+                <p id="features-content" style="font-size: 25px;">
+                    Access the METAR database and optimize Weather Systems in the Airline Industry
+                </p>
+            </div>
+            <div class="content-box">
+                <h3 style="font-size: 25px; margin-bottom:10px;">Access to METAR database</h3>
+                <p>
+                    By utilizing our platform, meteorologists can browse a database of METAR documentation that contributes to applied
+                    weather research in airline industries. 
+                </p>
+            </div>
+
+            <!-- Second Content Box -->
+            <div class="content-box">
+                <h3 style="font-size: 25px; margin-bottom:10px;">Optimized Weather Systems</h3>
+                <p>
+                    The integration of METAR documentation leads to the optimization of weather-related systems, enhancing overall operational efficiency.
+                </p>
+            </div>
+        </div>
+        <!-- Our Team -->
+        <div id="teamContainer">
+            <div id="team">
+                <h3 style="color:white; font-size: 40px;">Our Team</h3><br>
+                <img id="umdLogo"
+                    src="https://umd-brand.transforms.svdcdn.com/production/uploads/images/logos-formal-seal.jpg?w=1801&h=1801&auto=compress%2Cformat&fit=crop&dm=1651267392&s=81a14f930f7888983f0f8bc10146c0b2"
+                    alt="UMD Logo">
+                <br><br>
+                <p id="team-content" style="color: white">Our team is made up of students from the University of Maryland,
+                    College Park who are passionate about aviation and want to make sure
+                    that you have the best information available to make the best decisions for your flight.
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <h4>Sky Ready Aviation</h4>
+            <hr style="border-color:grey; width: 50%; margin: 10px auto;">
+            <p id="copyright">&copy; 2023 AMG, All Rights Reserved.</p>
+        </footer>
+
+    </body>
+
+</html>

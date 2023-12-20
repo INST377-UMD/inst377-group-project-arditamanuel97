@@ -1,0 +1,330 @@
+<html>
+
+    <head>
+        <title>SkyAviation Ready</title>
+
+        <!-- LEAFLET DEFAULT CSS STYLE -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+
+        <!-- LEAFLET JS SOURCE-->
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+
+        <!-- LOAD js files -->
+        <script src="group_project.js" defer></script>
+        
+        <style>
+            /* Header CSS */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            #sky-aviation-ready {
+                color: black;
+                font-weight: 1800px;
+            }
+
+            #bar {
+                padding: 20px;
+                height: 600px;
+                text-align: center;
+                background-color: #5228F5;
+                color: white;
+                width: 100%;
+                margin-bottom: 10px;
+                display: flex;
+                flex-direction: column;
+
+            }
+
+            #appInfos {
+                flex-grow: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            #main-nav {
+                background-color: white;
+                border: 1px solid transparent;
+                border-radius: 50px;
+                width: 90%;
+                margin: 0px auto 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 30px;
+            }
+
+            #main-nav a {
+                text-decoration: none;
+                color: black;
+                font-weight: 500;
+            }
+
+            #navBarLinks {
+                display: flex;
+                gap: 50px;
+                font-size: x-large;
+            }
+
+            /* Get started button */
+            .getStartedButton {
+                margin-bottom: 50px;
+                align-items: center;
+                appearance: none;
+                background-color: #FCFCFD;
+                border-radius: 50px;
+                border-width: 0;
+                box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+                box-sizing: border-box;
+                color: #36395A;
+                cursor: pointer;
+                display: inline-flex;
+                font-family: "JetBrains Mono", monospace;
+                height: 48px;
+                justify-content: center;
+                line-height: 1;
+                list-style: none;
+                overflow: hidden;
+                padding-left: 16px;
+                padding-right: 16px;
+                position: relative;
+                text-align: left;
+                text-decoration: none;
+                transition: box-shadow .15s, transform .15s;
+                user-select: none;
+                -webkit-user-select: none;
+                touch-action: manipulation;
+                white-space: nowrap;
+                will-change: box-shadow, transform;
+                font-size: 18px;
+            }
+
+            .getStartedButton:focus {
+                box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+            }
+
+            .getStartedButton:hover {
+                box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+                transform: translateY(-2px);
+            }
+
+            .getStartedButton:active {
+                box-shadow: #D6D6E7 0 3px 7px inset;
+                transform: translateY(2px);
+            }
+
+            /* Info */
+            #infoContainer {
+                background-color: white;
+                display: flex;
+                padding: 100px;
+                gap: 200px;
+            }
+
+            #info {
+                align-items: left;
+                width: 30%;
+            }
+
+            #infoContent {
+                font-size: 25px;
+                margin-top: 20px;
+                color: gray;
+            }
+
+
+            .loadDataButton {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 6px 14px;
+                font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+                border-radius: 6px;
+                border: none;
+                width: 30%;
+                padding: 15px;
+                height: 50px;
+                background: #6E6D70;
+                box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+                color: #DFDEDF;
+                user-select: none;
+                -webkit-user-select: none;
+                touch-action: manipulation;
+            }
+
+            .loadDataButton:focus {
+                box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+                outline: 0;
+            }
+
+            .loadDataButton:hover {
+                background-color: #5228F5;
+            }
+
+            /* styles.css */
+
+            input {
+                box-shadow: inset #abacaf 0 0 0 2px;
+                border: 0;
+                background: rgba(0, 0, 0, 0);
+                appearance: none;
+                width: 50%;
+                position: relative;
+                border-radius: 3px;
+                padding: 15px;
+                line-height: 1.4;
+                color: rgb(0, 0, 0);
+                font-size: 16px;
+                font-weight: 400;
+                height: 40px;
+                transition: all .2s ease;
+            }
+
+            input:hover {
+                box-shadow: 0 0 0 0 #fff inset, #1de9b6 0 0 0 2px;
+            }
+
+            input:focus {
+                background: #fff;
+                outline: 0;
+                box-shadow: 0 0 0 0 #fff inset, #1de9b6 0 0 0 3px;
+            }
+
+            /* Team */
+            #teamContainer {
+                background-color: black;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 100px;
+                gap: 200px;
+                text-align: center;
+            }
+
+            #umdLogo {
+                width: 100px;
+                height: auto;
+                margin-right: 10px;
+                border-radius: 40px;
+
+            }
+
+            #team {
+                margin: 0 auto;
+
+            }
+
+            .team p {
+                font-size: 25px;
+            }
+
+
+            #team-content {
+                font-size: 18px;
+            }
+
+            /* Footer */
+            #footer {
+                text-align: center;
+                background-color: black;
+                color: white;
+                padding: 10px;
+                bottom: 0;
+                width: 100%;
+            }
+
+            #copyright {
+                color: grey;
+            }
+
+            #map { height: 400px; }
+
+            body {
+                background-color: bisque;
+            }
+
+            table, th, td  {
+                border: 1px solid black;
+                padding: 5px;
+                margin-top: 10px;
+                background-color: white;
+            }
+
+            #errorBox {
+                background-color: rgb(209, 81, 81);
+                color: white;
+                border: 3px solid black;
+                margin: 10px;
+                padding: 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+            <!-- Common Header  -->
+            <!-- Header Title Bar -->
+            <header id="bar">
+                <!-- Navigation Bar -->
+                <nav id="main-nav">
+                    <h1 id="sky-aviation-ready">SKYREADY AVIATION</h1>
+                    <div id="navBarLinks">
+                        <a href="index.html">Home</a>
+                        <a href="metarInfoPage.html">METAR Info</a>
+                        <a href="about.html">About</a>
+                    </div>
+                </nav>
+                <div id="appInfos">
+                    <h1 style="font-size: 70px; font-family: 'Helvetica', Arial, sans-serif;">
+                        Best Weather Information Provider for Meteorologists
+                    </h1>
+                </div>
+
+                <!-- Get started button -->
+                <a href="metarInfoPage.html">
+                    <button class="getStartedButton" role="button">Get Started</button>
+                </a>
+            </header>
+
+            <!--Input to get infos-->
+            <div id="infoContainer">
+                <div id="info">
+                    <h3 style="color:blue; font-size: 24px;">Info</h3><br>
+                    <h1>Get METAR Info</h1>
+                    <p id="infoContent" style="font-size: 25px;">
+                        Please fill out the form to get the Weather Info. &#127781; <br> 
+                        Sample Entries <br>
+                        Station ID &nbsp; &nbsp; Coordinates <br>
+                        KATL &nbsp; 33.6, -84.4 <br>
+                        KDCA &nbsp; 38.8, -77.0 <br>
+                        RJTT &nbsp; 35.5, 139.7 <br>
+                        LFPG &nbsp; 49.0, 2.5 <br>
+                        YSSY &nbsp; -33.9, 151.1 <br>
+                    </p>
+                </div>
+                <div id="infoForm">
+                    <form method="get" onsubmit="getCurrentMETAR(); return false;">
+                        <h2>Station Id </h2>
+                        <input type="text" name="stationId" id="stationId" required>
+                        <h2>Coordinates - Latitude, Longitude</h2>
+                        <input type="text" name="rectCoordinates" id="rectCoordinates" required>
+                        <h2>Date/Time (yyyymmdd_hhmmss)</h2>
+                        <input type="text" name="dateTime" id="dateTime" required>
+                        <br><br>
+                        <button type="submit" class="loadDataButton" role="button" style="font-size: large;">Load Data</button>
+                    </form>
+
+                    <div id="map"></div>
+
+                </div>
+            </div>
+    </body>
+
+</html>
